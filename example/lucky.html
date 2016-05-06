@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+		<style>
+		    /*body {
+		     	background-image:url("http://2.wxphptest.sinaapp.com/example/luck.jpg");
+		     	background-attachment: fixed; 
+		     	background-size:100% 100%;/*使背景图自适应屏幕*/
+		     
+			 #mcover {
+				position: fixed;/*固定定位*/
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.7);/*三原色值+透明度*/
+				display: none;
+				z-index: 20000;/*决定堆叠顺序，正数表示离用户越近，负数表示离用户越远*/
+			 }
+			 #mcover img {
+				position: fixed;
+				right: 18px;
+				top: 5px;
+				width: 260px!important;/*提高指定样式的应用优先权*/
+				height: 180px!important;
+				z-index: 20001;
+			 }
+			 .text {
+				margin: 15px 0;
+				font-size: 14px;
+				word-wrap: break-word;/*使容器内容自动换行*/
+				color: #727272;
+			 }
+			 #mess_share {
+				margin: 15px 0;
+				display: block;/*显示为块级元素*/
+			 }
+			 #share_1 {
+				float: left;
+				width: 49%;
+				display: block;
+			 }
+			 #share_2 {
+				float: right;
+				width: 49%;
+				display: block;
+			 }
+			 .clr {/**/
+				display: block;
+				clear: both;/*清除浮动样式*/
+				height: 0;
+				overflow: hidden;/*overflow属性用于规定内容溢出元素框后发生的事情，这里的hidden表示溢出的内容会被修剪*/
+			 }
+			 .button1,.button2 {
+				font-size: 15px;
+				font-family: SimHei;
+				padding: 11px;
+				border: 1px solid #ff0000;
+				color: #ffcccc;
+				background:-webkit-gradient(linear, center top, center bottom, from(#880000), to(#ff0000));
+				box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45), inset 0 1px 1px #ff0000;/*向框添加阴影*/
+				/*text-shadow: 0.5px 0.5px 1px #fff;*/
+				text-align: center;
+				border-radius: 5px;								
+			 }
+			 .button1 {
+			 	width: 100%;
+			 }
+			 .button2 {
+			 	width: 40%;		 	
+			 }
+			 .middle {
+			 	margin-left: auto;
+			 	margin-top: auto;
+			 	text-align: center;
+			 	vertical-align: center;
+			 }
+			 #share_0 img {
+			 	position: absolute;
+			 	left: 0px;
+				top: 0px;
+			 	z-index: -1;
+			 	width: 100%;
+			 }
+			 #mess_share img {				
+				width: 22px!important;
+				height: 22px!important;
+				vertical-align: top;
+				border: 0;
+			 }
+        </style>
+
+        <script type="text/javascript">
+			function button1(){
+			$("#mcover").css("display","block")    // 分享给好友按钮触动函数
+			}
+			function button2(){
+			$("#mcover").css("display","block")  // 分享给好友圈按钮触动函数
+			}
+			function weChat(){
+			$("#mcover").css("display","none");  // 点击弹出层，弹出层消失
+			}
+			
+			/*$(function(){
+			   setTimeout(function () {
+					$("#mcover").show();}, 6000);   // 6000毫秒是弹出层
+			setTimeout(function () {
+					$("#mcover").hide(); }, 8000);    //8000毫秒是隐藏层
+			})*/
+
+		</script>
+    
+    <body>
+    	<div id="mcover" onclick="weChat()" style="display:none;">
+          <img src="https://mmbiz.qlogo.cn/mmbiz/vV3bdMHsLIjY2s0npKT0FaJ6iaC1MaiciakM61zfqBsNjYH14ovUG145GEuwMPafiaPjh5drSaAg8DMTic3a2I3icbLg/0" />
+	   </div>
+ 
+        <div class="text" id="content">                            
+                            <div id="mess_share">
+                                    <div id="share_1">
+                                        <button class="button1" onclick="button1()">
+                                            <img src="https://mmbiz.qlogo.cn/mmbiz/vV3bdMHsLIjY2s0npKT0FaJ6iaC1MaiciakIHMqX6tb7127kicbBd5vIZcey4wenREiaEe8YXshOWpFcIser6AgbsEA/0" width="64" height="64" />
+                                             发送给朋友
+                                        </button>
+                                    </div>
+                                    <div id="share_2">
+                                        <button class="button1" onclick="button2()">
+                                            <img src="https://mmbiz.qlogo.cn/mmbiz/vV3bdMHsLIjY2s0npKT0FaJ6iaC1MaiciakERrBO1bHKDDzxiakMd4m2H1mmib1ShpekZ8RZm5ECazcDqF96c5wcl2w/0" width="64" height="64" />
+                                             分享到朋友圈
+                                        </button>
+                                    </div>
+                                    <div class="clr"></div>
+                            </div>                            
+        </div>
+
+        <div id="share_0">
+            <img src="http://2.wxphptest.sinaapp.com/example/luck.jpg" />
+        </div>
+
+        <div class="middle">
+           <button class="button2" onclick="location='http://mp.weixin.qq.com/s?__biz=MzA3NjUyNjUzNw==&mid=202376029&idx=1&sn=0c06c4b785d9768afdaffd2fb95ddc36#rd'" style="height=20px;width=50px">关注领奖</button>
+        </div>
+    </body>
+</html>

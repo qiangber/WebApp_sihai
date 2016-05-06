@@ -1,0 +1,288 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <title>四海众邦</title>
+  	<meta charset = "utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!--允许全屏模式浏览，即可隐藏状态条和工具栏-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"><!--指定的iphone中safari顶端的状态条的样式-->
+    <link rel="shortcut icon" href="/images/sublime.ico" />
+
+    <style type="text/css">
+    html {
+	       -webkit-text-size-adjust:100%;
+	       -ms-text-size-adjust:100%;
+	       text-size-adjust:100%;
+        }/*避免文本文字大小重置*/
+
+    .ui-dialog-contain {
+      margin-top:50%;
+      position: relative;
+      top: -15px;
+    }
+
+    .article-info {
+      border: 1px solid #ccc;
+      width: 100%;
+      overflow:hidden;
+      color:blue;
+    }
+    </style>
+
+    <link rel="apple-touch-startup-image" href="img/l/splash.png">
+    <!--iphone下全屏启动-->
+    <link rel="stylesheet" type="text/css" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.css">   
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  	
+    <!-- 主页、素材列表 -->
+    <section data-role="page" id="homepage" name="主页" data-fullscreen="true">
+      <header data-role="header" data-theme="a">
+        <a href="#" data-icon="user" id="user">个人中心</a>
+        <h1>投资信息</h1>
+      </header>
+
+      <body>
+        <nav data-role="navbar" data-theme="a" data-position="fixed">
+          <ul>
+            <li><a href="#" id="111" class="ui-btn-active">全部</a></li>
+            <li><a href="#" id="001">投资流程</a></li>
+            <li><a href="#" id="002">投资风险</a></li>
+          </ul>
+          <ul>
+            <li><a href="#" id="003">投资收益</a></li>  
+            <li><a href="#" id="004">投资宝典</a></li>              
+            <li><a href="#" id="005">投资案例</a></li>              
+          </ul>
+        </nav>
+
+        <ul data-role="listview" data-inset="true" id="newsList">            
+        </ul>
+      </body>
+
+      <footer data-role="footer" data-position="fixed" data-theme="b">
+          <nav data-role="navbar">
+              <ul>
+                  <li><a data-rel="back" data-icon="back" data-iconpos="right">返回</a></li>
+                  <li><a href="#itemsListPage" data-icon="cloud" data-iconpos="right">项目信息</a></li>
+                  <li><a href="#" data-icon="grid" data-iconpos="right" class="toMine">我的投资</a></li>
+                  <li><a href="#others" data-icon="bars" data-iconpos="right" data-rel="popup">其它</a></li>
+              </ul>
+          </nav>
+
+          <div data-role="popup" id="others" data-theme="a">
+            <ul data-role="listview">
+                <li><a href="#" id="006">常见问题</a></li>
+                <li><a href="#" class="aboutUs">本站概况</a></li>
+                <li><a href="#" class="contact">联系我们</a></li>
+            </ul>
+          </div>
+      </footer>
+    </section>
+
+    <!-- 素材信息 -->
+    <div data-role="page" id="newsInfo">
+      <div data-role="header" data-theme="a" >
+        <a data-rel="back" data-icon="back">返回</a>
+        <h1>投资信息</h1>  
+      </div>
+
+      <div class="content">
+        <p></p>
+      </div>        
+
+      <footer data-role="footer" data-position="fixed" data-theme="b">
+          <nav data-role="navbar">
+              <ul>
+                  <li><a data-rel="back" data-icon="back" data-iconpos="right">返回</a></li>
+                  <li><a href="#itemsListPage" data-icon="cloud" data-iconpos="right">项目信息</a></li>
+                  <li><a href="#" data-icon="grid" data-iconpos="right" class="toMine">我的投资</a></li>
+                  <li><a href="#newsInfo_others" data-icon="bars" data-iconpos="right" data-rel="popup">其它</a></li>
+              </ul>
+          </nav>
+
+          <div data-role="popup" id="newsInfo_others" data-theme="a">
+            <ul data-role="listview">
+                <li><a href="#" class="006">常见问题</a></li>
+                <li><a href="#" class="aboutUs">本站概况</a></li>
+                <li><a href="#" class="contact">联系我们</a></li>
+            </ul>
+          </div>
+      </footer>
+    </div>
+
+    <!-- 登录页面 -->
+    <section data-role="page" id="login" name="login">
+  		<header data-role="header" data-theme="a">
+  			<a href="#homepage" data-icon="home">首页</a>
+  			<h1 align="center">个人登录</h1>
+        <a data-rel="back" data-icon="back">返回</a>        
+  		</header>
+
+      <div data-role="content" data-theme="a">
+        <div data-role="fieldcontain" id="myTab_Content0" style="display:block;">
+          <form action="" method="post" enctype="multipart/form-data" name="identityCard">
+            <div class="ui-field-contain">
+              <label for="userName">用户名：</label>
+              <input type="text" id="userName" name="userName" value="身份证号码或登录ID" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#CFCFCF">
+            </div>
+            <div class="ui-field-contain">
+              <label for="password">密码：</label>
+              <input type="password" id="password" name="password" value="">
+            </div>
+            <div class="ui-field-contain">
+              <label>&nbsp;</label>
+              <input type="button" value="登录" data-theme="a" id="submit">
+            </div>
+            <input type="hidden" name="type" value="login"/>
+          </form>                                        
+        </div>
+      </div>          
+  	</section>
+
+    <!-- 项目列表 -->
+    <div data-role="page" id="itemsListPage" name="项目信息" data-fullscreen="true">
+       <header data-role="header" data-theme="a">
+        <a href="#homepage" data-icon="home">首页</a>
+          <h1 align="center">项目信息</h1>
+        <a href="#login" data-icon="user">登录</a>
+       </header>
+
+       <!--<input type="search" name="search" id="search" value="">-->
+       <div data-role="navbar" data-theme="a" data-position="fixed">
+          <ul>
+            <li><a href="#" id="allItems" class="ui-btn-active">全部</a></li>
+            <li><a href="#" id="items_1" class="">IT服务</a></li>
+            <li><a href="#" id="items_2" class="">电子通信</a></li>
+          </ul>
+          <ul>
+            <li><a href="#" id="items_3" class="">家电数码</a></li>  
+            <li><a href="#" id="items_4" class="">电子商务</a></li>              
+            <li><a href="#" id="items_5" class="">其它类型</a></li>              
+          </ul>
+       </div>
+       <ul data-role="listview" data-filter="true" data-theme="a" placeholder="" data-inset="true" id="itemsList">
+       </ul>
+
+       <footer data-role="footer" data-position="fixed" data-theme="b">
+          <nav data-role="navbar">
+              <ul>
+                  <li><a data-rel="back" data-icon="back" data-iconpos="right">返回</a></li>
+                  <li><a href="#" data-icon="grid" data-iconpos="right" class="toMine">我的投资</a></li>
+                  <li><a href="#itemsListPage_others" data-icon="bars" data-iconpos="right" data-rel="popup">其它</a></li>
+              </ul>
+          </nav>
+
+          <div data-role="popup" id="itemsListPage_others" data-theme="a">
+            <ul data-role="listview">
+                <li><a href="#" class="006">常见问题</a></li>
+                <li><a href="#" class="aboutUs">本站概况</a></li>
+                <li><a href="#" class="contact">联系我们</a></li>
+            </ul>
+          </div>
+      </footer>
+
+    </div>
+
+     <!-- 项目信息 -->
+     <div data-role="page" id="itemsInfo" data-fullscreen="true">
+       <header data-role="header" data-theme="a">
+        <a href="#homepage" data-icon="home">首页</a>
+        <h1>项目投资</h1>
+        <a href="#login" data-icon="user">登录</a>
+       </header>
+
+       <div class="content" data-theme="a">
+         <div class="box"></div>
+       </div>
+
+       <footer data-role="footer" data-position="fixed" data-theme="b">
+          <nav data-role="navbar">
+              <ul>
+                  <li><a data-rel="back" data-icon="back" data-iconpos="right">返回</a></li>
+                  <li><a href="#" data-icon="grid" data-iconpos="right" class="toMine">我的投资</a></li>
+                  <li><a href="#itemsInfo_others" data-icon="bars" data-iconpos="right" data-rel="popup">其它</a></li>
+              </ul>
+          </nav>
+
+          <div data-role="popup" id="itemsInfo_others" data-theme="a">
+            <ul data-role="listview">
+                <li><a href="#" class="006">常见问题</a></li>
+                <li><a href="#" class="aboutUs">本站概况</a></li>
+                <li><a href="#" class="contact">联系我们</a></li>
+            </ul>
+          </div>
+      </footer>
+
+     </div>
+
+     <!-- 我的项目列表 -->
+     <section data-role="page" id="mine">
+      <header data-role="header" data-theme="a">
+        <a href="#homepage" data-icon="home">首页</a>
+          <h1>我的投资</h1>
+        <a href="#" data-icon="navigation" id="loginOut">注销</a>
+      </header>
+
+      <div class="content">
+        <div></div>
+        <ul data-role="listview" data-inset="true" data-theme="a" id="myList">
+        </ul>
+      </div>
+
+      <footer data-role="footer" data-position="fixed" data-theme="b">
+          <nav data-role="navbar">
+              <ul>
+                  <li><a data-rel="back" data-icon="back" data-iconpos="right">返回</a></li>
+                  <li><a href="#itemsListPage" data-icon="cloud" data-iconpos="right">项目信息</a></li>
+                  <li><a href="#mine_others" data-icon="bars" data-iconpos="right" data-rel="popup">其它</a></li>
+              </ul>
+          </nav>
+
+          <div data-role="popup" id="mine_others" data-theme="a">
+            <ul data-role="listview">
+                <li><a href="#" class="006">常见问题</a></li>
+                <li><a href="#" class="aboutUs">本站概况</a></li>
+                <li><a href="#" class="contact">联系我们</a></li>
+            </ul>
+          </div>
+      </footer>
+
+     </section>
+
+     <!-- 平台概况 -->
+     <section data-role="page" id="aboutUsPage">
+       <header data-role="header" data-theme="a">
+         <a data-rel="back" data-icon="back">返回</a>
+         <h1>本站概况</h1>             
+       </header>
+       <div class="ui-body ui-body-a" theme="b" style="text-shadow: 0 1px 0 #f3f3f3;">
+         <div class="content">
+            <p></p>
+         </div> 
+       </div>        
+     </section>
+
+    <!-- 联系我们 -->
+     <section data-role="page" id="contactPage">
+       <header data-role="header" data-theme="a">
+         <a data-rel="back" data-icon="back">返回</a>
+         <h1>联系我们</h1>             
+       </header>
+       <div class="ui-body ui-body-a" theme="b" style="text-shadow: 0 1px 0 #f3f3f3;">
+         <div class="content">
+            <p></p>
+         </div> 
+       </div>                   
+     </section>       
+
+  </body>
+
+  <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+  <script type="text/javascript" src="SihaiApp.js"></script>
+
+</html>
